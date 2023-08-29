@@ -2,7 +2,7 @@ import os
 from twilio.rest import Client
 
 import CallApi
-
+# First follow the Twilio python quick start https://www.twilio.com/docs/sms/quickstart/python
 # Find your Account SID and Auth Token at twilio.com/console
 # and set the environment variables. See http://twil.io/secure
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
