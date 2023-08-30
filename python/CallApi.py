@@ -25,6 +25,6 @@ def Call_api():
     desiredSiteId = 61205460
 
     # Filter out the fuel prices for the desired SiteId
-    fuel_prices = getSitePrice(siteJSON, fuelJSON, desiredSiteId)
+    fuelPriceString = getSitePrice(siteJSON, fuelJSON, desiredSiteId)
 
-    return fuel_prices
+    return fuelPriceString

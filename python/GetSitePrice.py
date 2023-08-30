@@ -15,7 +15,9 @@ def getSitePrice(siteJSON, fuelJSON, desiredSites):
         if site_price["SiteId"] == desiredSites:
             # gets only the desired fuel name
             if desiredFuel == site_price["FuelId"]:
+
                 siteName = getSiteName(siteJSON, desiredSites)
+
                 fuelPrices += "The price for " + siteName + " is: \n"
                 fuelPrices += FUEL_DICT[site_price["FuelId"]] + ": "
                 fuelPrices += str(site_price["Price"])
