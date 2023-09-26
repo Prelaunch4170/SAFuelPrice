@@ -1,23 +1,17 @@
 import os
-from twilio.rest import Client
+import requests
 
 import CallApi
-# First follow the Twilio python quick start https://www.twilio.com/docs/sms/quickstart/python
-# Find your Account SID and Auth Token at twilio.com/console
-# and set the environment variables. See http://twil.io/secure
-account_sid = os.environ['TWILIO_ACCOUNT_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
-client = Client(account_sid, auth_token)
 
 fuelAPIMessage = CallApi.Call_api()
+# to set ENV token use "setx TOKEN_NAME TOKEN_VARIABLE"
+# non self-hosting NTFY uses no authentication
+# so make the token variable random using something like a password generator
+NTFY_SUB_TOKEN = os.environ['NTFY_SUB']
 
-message = client.messages \
-    .create(
-    body=fuelAPIMessage,
-    from_='+17068073673',
-    to='+61410531436'
-)
+requests.post("https://ntfy.sh/"+NTFY_SUB_TOKEN,
+              data=fuelAPIMessage.encode(encoding='utf-8'),
+              headers={"Title": "Fuel Price"})
 
 print(fuelAPIMessage)
-print(message.sid)
