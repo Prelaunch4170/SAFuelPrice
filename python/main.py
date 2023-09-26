@@ -10,7 +10,7 @@ fuelAPIMessage = CallApi.Call_api()
 # so make the token variable random using something like a password generator
 NTFY_SUB_TOKEN = os.environ['NTFY_SUB']
 
-requests.post("https://ntfy.sh/"+NTFY_SUB_TOKEN,
+requests.put("https://ntfy.sh/"+NTFY_SUB_TOKEN,
               data=fuelAPIMessage.encode(encoding='utf-8'),
               headers={"Title": "Fuel Price"})
 

@@ -22,7 +22,7 @@ def Call_api():
     siteJSON = responseSite.json()
 
     # Replace this with the SiteId you want to filter by
-    desiredSiteId = 61205460
+    desiredSiteId = [11111]
 
     # Filter out the fuel prices for the desired SiteId
     fuelPriceString = getSitePrice(siteJSON, fuelJSON, desiredSiteId)
