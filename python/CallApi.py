@@ -4,7 +4,7 @@ import os
 from GetSitePrice import getSitePrice
 
 def Call_api():
-    TOKEN = os.environ['Fuel_API_TOKEN']
+    TOKEN = os.environ['FUEL_PRICE_API_TOKEN']
 
     URL_FUEL = "https://fppdirectapi-prod.safuelpricinginformation.com.au/Price/GetSitesPrices?countryId=21" \
                "&geoRegionLevel=3&geoRegionId=4"
@@ -26,5 +26,4 @@ def Call_api():
 
     # Filter out the fuel prices for the desired SiteId
     fuelPriceString = getSitePrice(siteJSON, fuelJSON, desiredSiteId)
-
     return fuelPriceString

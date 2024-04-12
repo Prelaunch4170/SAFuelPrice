@@ -22,9 +22,19 @@ def getSitePrice(siteJSON, fuelJSON, desiredSites):
                 if site_price["SiteId"] == sites and desiredFuel == site_price["FuelId"]:
                     fuelPrices += FUEL_DICT[site_price["FuelId"]] + ": "
                     fuelPrices += str(site_price["Price"]) + "\n"
+
+    totalPrice = 0
+    averagePrice = 0
+    count = 0
+    for site_price in fuelJSON["SitePrices"]:
+        for desiredFuel in desiredFuels:
+            if desiredFuel == site_price["FuelId"]:
+                totalPrice += site_price["Price"]
+                count += 1
+    averagePrice = round((totalPrice / count), 2)
+    print(averagePrice)
+    fuelPrices += "State Average is: " + str(averagePrice)
     return fuelPrices
-
-
 """
     for site_price in fuelJSON["SitePrices"]:
         # if the site ID matches the desired site
