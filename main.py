@@ -7,6 +7,7 @@ fuelAPIMessage = CallApi.Call_api()
 # to set ENV token use "setx TOKEN_NAME TOKEN_VARIABLE"
 # non self-hosting NTFY uses no authentication
 # so make the token variable random using something like a password generator
+# this is done in the app
 NTFY_SUB_TOKEN = os.environ['NTFY_SUB_TOK']
 
 requests.put("https://ntfy.sh/" + NTFY_SUB_TOKEN,
